@@ -40,25 +40,50 @@ a:hover{opacity:.9}
   max-height: none !important;
 }
 .topbar__inner{
-  height:90px;                 /* slightly taller header */
+  height:68px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  justify-content:space-between; /* pushes logo left, nav right */
+  gap:12px;
 }
-.brand {
-  display: flex;
-  align-items: center;
+.brand{
+  display:flex;
+  align-items:center;
 }
 
 .nav{
   display:flex;
-  gap:22px;
+  gap:18px;
   align-items:center;
-  margin-left:auto;   /* THIS pushes nav to the right */
+  margin-left:auto; /* forces nav to the far right */
 }
-.nav a{font-size:14px; color:rgba(255,255,255,.85)}
-.nav a:hover{color:rgba(255,255,255,1)}
+.nav a{
+  font-size:15px;
+  color:rgba(255,255,255,.85);
+  position:relative;
+  text-decoration:none;
+  transition: color .25s ease;
+}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 0 10px rgba(255,255,255,.7);
+  transition:width .25s ease;
+}
+
+.nav a:hover{
+  color:#ffffff;
+}
+
+.nav a:hover::after{
+  width:100%;
+}
 
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
@@ -71,7 +96,12 @@ a:hover{opacity:.9}
   font-weight:600;
   letter-spacing:.2px;
 }
-.btn:hover{transform:translateY(-1px)}
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:
+    0 0 15px rgba(255,255,255,.25),
+    0 10px 30px rgba(0,0,0,.4);
+}
 .btn--ghost{
   background: rgba(255,255,255,.05);
   box-shadow:none;
