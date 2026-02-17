@@ -187,8 +187,8 @@ h1{
   display:flex; justify-content:center;
 }
 .badge{
-  width: 380px;
-  max-width: 90%;
+  width: 250px;
+  max-width: 78%;
   display: block;
   margin: 0 auto;
   filter:
