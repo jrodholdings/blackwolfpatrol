@@ -34,14 +34,17 @@ a:hover{opacity:.9}
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.topbar__inner{
-  height:100px;   /* Taller header */
-}
 .brand__logo{
-  height:70px;      /* Bigger logo */
+  height:70px;          /* Bigger logo */
   width:auto;
   display:block;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,.6));
+}
+.topbar__inner{
+  height:90px;          /* Taller header bar */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
 .brand{
   display:flex;
