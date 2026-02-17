@@ -7,37 +7,47 @@ btn?.addEventListener("click", () => {
   mobileNav.style.display = isOpen ? "none" : "block";
 });
 
-// Close mobile nav when link clicked
 mobileNav?.querySelectorAll("a").forEach(a => {
   a.addEventListener("click", () => mobileNav.style.display = "none");
 });
 
-// Year in footer
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Simple mailto form
-function openMailto(){
+
+// =============================
+// FORM SUBMISSION (FORM SPREE)
+// =============================
+
+const form = document.getElementById("contactForm");
+
+form?.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
   const hoa = document.getElementById("hoaName").value.trim();
   const city = document.getElementById("city").value.trim();
   const msg = document.getElementById("message").value.trim();
 
-  const subject = encodeURIComponent(`Interest: Community Patrol Program — ${hoa} (${city})`);
-  const body = encodeURIComponent(
-`Hello Black Wolf Patrol,
+  try {
+    const response = await fetch("https://formspree.io/f/meelkrpr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        hoaName: hoa,
+        city: city,
+        message: msg
+      })
+    });
 
-Community/HOA: ${hoa}
-City: ${city}
+    if (response.ok) {
+      window.location.href = "thank-you.html";
+    } else {
+      alert("There was an issue submitting the form. Please try again.");
+    }
 
-Request / Notes:
-${msg}
-
-Thank you,`
-  );
-
-  // TODO: Replace with your real email inbox for the business
-  const to = "blkwolfpatrol@gmail.com";
-
-  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-  return false; // prevent page reload
-}
-window.openMailto = openMailto;
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+  }
+});
