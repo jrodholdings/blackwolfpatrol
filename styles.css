@@ -35,16 +35,17 @@ a:hover{opacity:.9}
   border-bottom: 1px solid var(--line);
 }
 .topbar__inner{
-  height:90px;   /* was 68px */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+  height:100px;   /* Taller header */
 }
 .brand__logo{
-  height:64px;   /* make it big */
+  height:70px;      /* Bigger logo */
   width:auto;
   display:block;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,.6));
+}
+.brand{
+  display:flex;
+  align-items:center;
 }
 
 .nav{display:flex; gap:18px; align-items:center}
