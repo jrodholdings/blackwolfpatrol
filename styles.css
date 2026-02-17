@@ -35,11 +35,17 @@ a:hover{opacity:.9}
   border-bottom: 1px solid var(--line);
 }
 .topbar__inner{
-  height:68px;
-  display:flex; align-items:center; justify-content:space-between;
+  height:90px;   /* was 68px */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   gap:12px;
 }
-.brand__logo{height:60px; width:auto; display:block}
+.brand__logo{
+  height:64px;   /* make it big */
+  width:auto;
+  display:block;
+}
 
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{font-size:14px; color:rgba(255,255,255,.85)}
@@ -97,15 +103,15 @@ a:hover{opacity:.9}
 }
 .hero__copy{padding-top:10px}
 .eyebrow{
-  margin:0 0 14px;
-  font-size:18px;
-  letter-spacing:.25em;
+  margin:0 0 18px;
+  font-size:20px;
+  letter-spacing:.28em;
   font-weight:700;
-  color:rgba(255,255,255,.92);
+  color:rgba(255,255,255,.95);
 }
 h1{
   margin:0 0 14px;
-  font-size:54px;
+  font-size:60px;
   line-height:1.05;
 }
 .subhead{
