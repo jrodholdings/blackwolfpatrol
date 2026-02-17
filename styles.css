@@ -211,8 +211,8 @@ h1{
   padding:14px 0;
 }
 .icon{
-  width:52px;
-  height:52px;
+  width:60px;
+  height:60px;
   opacity:.95;
   flex: 0 0 52px;          /* prevents shrinking */
   margin-top: 2px;         /* aligns with title baseline */
