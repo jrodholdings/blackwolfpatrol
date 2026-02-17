@@ -35,15 +35,16 @@ a:hover{opacity:.9}
   border-bottom: 1px solid var(--line);
 }
 .brand__logo {
-  height: 85px;
-  width: auto;
+  height: 85px !important;
+  width: auto !important;
+  max-height: none !important;
 }
 .topbar__inner {
-  height: 100px;
+  height: 110px;
 }
-.brand{
-  display:flex;
-  align-items:center;
+.brand {
+  display: flex;
+  align-items: center;
 }
 
 .nav{display:flex; gap:18px; align-items:center}
