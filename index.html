@@ -287,51 +287,31 @@
 
         <div class="contact__card">
           <!-- No backend needed: this opens the visitor's email client -->
-<form 
-  class="form" 
-  action="https://formspree.io/f/meelkrpr" 
-  method="POST"
->
+<form class="form" action="https://formspree.io/f/meelkrpr" method="POST">
   <label>
     Community / HOA Name
-    <input 
-      type="text" 
-      name="hoaName"
-      placeholder="e.g., Mountain View HOA" 
-      required 
-    />
+    <input type="text" name="hoaName" placeholder="e.g., Mountain View HOA" required />
   </label>
 
   <label>
     City
-    <input 
-      type="text" 
-      name="city"
-      placeholder="e.g., Fontana" 
-      required 
-    />
+    <input type="text" name="city" placeholder="e.g., Fontana" required />
   </label>
 
   <label>
     What are you looking for?
-    <textarea 
-      name="message"
-      rows="5" 
-      placeholder="e.g., community patrol, parking observation, incident reporting..." 
-      required
-    ></textarea>
+    <textarea name="message" rows="5" placeholder="e.g., Security patrol, parking observation, incident reporting..." required></textarea>
   </label>
 
-  <!-- Optional hidden subject -->
-  <input type="hidden" name="_next" value="https://jrodholdings.github.io/blackwolfpatrol/thankyou.html">
-
   <input type="hidden" name="_subject" value="New Black Wolf Patrol Inquiry" />
+  <input type="hidden" name="_next" value="https://jrodholdings.github.io/blackwolfpatrol/thankyou.html" />
+
+  <!-- Honeypot (spam reduction) -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
   <button class="btn" type="submit">Send Request</button>
 
-  <p class="fineprint">
-    We will respond within 24–48 hours.
-  </p>
+  <p class="fineprint">We will respond within 24–48 hours.</p>
 </form>
         </div>
       </div>
