@@ -16,38 +16,51 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 
 // =============================
-// FORM SUBMISSION (FORM SPREE)
+// FORM SUBMISSION (FORMSPREE)
 // =============================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-const form = document.getElementById("contactForm");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn ? submitBtn.textContent : "";
 
-form?.addEventListener("submit", async function (e) {
-  e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const hoa = document.getElementById("hoaName").value.trim();
-  const city = document.getElementById("city").value.trim();
-  const msg = document.getElementById("message").value.trim();
-
-  try {
-    const response = await fetch("https://formspree.io/f/meelkrpr", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        hoaName: hoa,
-        city: city,
-        message: msg
-      })
-    });
-
-    if (response.ok) {
-      window.location.href = "thank-you.html";
-    } else {
-      alert("There was an issue submitting the form. Please try again.");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
     }
 
-  } catch (error) {
-    alert("Something went wrong. Please try again.");
-  }
+    try {
+      const res = await fetch("https://formspree.io/f/meelkrpr", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        window.location.href = "./thank-you.html";
+        return;
+      }
+
+      // show useful error info from Formspree
+      let msg = "There was an issue submitting the form. Please try again.";
+      try {
+        const data = await res.json();
+        if (data?.errors?.length) msg = data.errors.map(e => e.message).join(" ");
+      } catch (_) {}
+
+      alert(msg);
+    } catch (err) {
+      console.error(err);
+      alert("Network error. Please try again.");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText || "Send Request";
+      }
+    }
+  });
 });
