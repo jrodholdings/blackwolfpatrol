@@ -34,17 +34,12 @@ a:hover{opacity:.9}
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.brand__logo{
-  height:70px;          /* Bigger logo */
-  width:auto;
-  display:block;
+.brand__logo {
+  height: 85px;
+  width: auto;
 }
-.topbar__inner{
-  height:90px;          /* Taller header bar */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+.topbar__inner {
+  height: 100px;
 }
 .brand{
   display:flex;
