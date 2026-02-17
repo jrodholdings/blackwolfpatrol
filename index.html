@@ -287,29 +287,52 @@
 
         <div class="contact__card">
           <!-- No backend needed: this opens the visitor's email client -->
-          <form class="form" onsubmit="return openMailto();">
-            <label>
-              Community / HOA Name
-              <input type="text" id="hoaName" placeholder="e.g., Mountain View HOA" required />
-            </label>
+<form 
+  class="form" 
+  action="https://formspree.io/f/meelkrpr" 
+  method="POST"
+>
+  <label>
+    Community / HOA Name
+    <input 
+      type="text" 
+      name="hoaName"
+      placeholder="e.g., Mountain View HOA" 
+      required 
+    />
+  </label>
 
-            <label>
-              City
-              <input type="text" id="city" placeholder="e.g., Fontana" required />
-            </label>
+  <label>
+    City
+    <input 
+      type="text" 
+      name="city"
+      placeholder="e.g., Fontana" 
+      required 
+    />
+  </label>
 
-            <label>
-              What are you looking for?
-              <textarea id="message" rows="5" placeholder="e.g., 3–5 weekly sweeps, parking observation, incident reporting..." required></textarea>
-            </label>
+  <label>
+    What are you looking for?
+    <textarea 
+      name="message"
+      rows="5" 
+      placeholder="e.g., community patrol, parking observation, incident reporting..." 
+      required
+    ></textarea>
+  </label>
 
-            <button class="btn" type="submit">Email Us</button>
+  <!-- Optional hidden subject -->
+  <input type="hidden" name="_next" value="https://jrodholdings.github.io/blackwolfpatrol/thankyou.html">
 
-            <p class="fineprint">
-              Note: This form opens your email app to send the message.
-              (Later we can upgrade to a real contact form.)
-            </p>
-          </form>
+  <input type="hidden" name="_subject" value="New Black Wolf Patrol Inquiry" />
+
+  <button class="btn" type="submit">Send Request</button>
+
+  <p class="fineprint">
+    We will respond within 24–48 hours.
+  </p>
+</form>
         </div>
       </div>
     </section>
