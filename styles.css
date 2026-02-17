@@ -39,15 +39,24 @@ a:hover{opacity:.9}
   width: auto !important;
   max-height: none !important;
 }
-.topbar__inner {
-  height: 110px;
+.topbar__inner{
+  height:90px;                 /* slightly taller header */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 .brand {
   display: flex;
   align-items: center;
 }
 
-.nav{display:flex; gap:18px; align-items:center}
+.nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  margin-left:auto;   /* THIS pushes nav to the right */
+}
 .nav a{font-size:14px; color:rgba(255,255,255,.85)}
 .nav a:hover{color:rgba(255,255,255,1)}
 
